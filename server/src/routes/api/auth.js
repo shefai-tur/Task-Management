@@ -1,8 +1,7 @@
 const express = require('express')
-const signinController  = require('../../controllers/signinController')
-const loginController = require('../../controllers/loginController')
+const loginController = require('../../controllers/loginController.js')
+const signinController = require('../../controllers/signinController.js')
 const _ = express.Router()
-
 
 _.post("/sign-in",signinController)
 _.get("/login",loginController)

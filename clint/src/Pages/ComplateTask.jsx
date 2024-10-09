@@ -1,8 +1,28 @@
-import React from 'react'
-
+import React,{ useEffect, useState } from 'react'
+import Card from '../Components/Home/Card'
+import axios from "axios"
 const ComplateTask = () => {
+  const [Data, setData] = useState();
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+  };
+  useEffect(() => {
+    const fatch = async () => {
+      const response = await axios.get(
+        "http://localhost:8000/api/v1/task/get-complate-task",
+        {
+          headers,
+        }
+      );
+      setData(response.data.data);
+    };
+    fatch();
+  });
   return (
-    <div>ComplateTask</div>
+    <div>
+    {Data && <Card home={"false"} data ={Data}/>}
+  </div>
   )
 }
 

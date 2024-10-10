@@ -53,7 +53,7 @@ const Card = ({ home, setInputDiv, data, setUpdateData }) => {
   return (
     <>
     
-      <div className=" grid grid-cols-3 p-4 gap-4 ">
+      <div className="  grid grid-cols-3 p-4 gap-4 ">
         {data.map((item, i) => (
           <div className=" flex flex-col justify-between bg-gray-800 rounded  p-4">
             <div>

@@ -1,5 +1,5 @@
 const userModel = require("../model/userModel");
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 
 const signinController =async (req,res) => {
@@ -18,14 +18,14 @@ try {
     if(existemail){
       return res.status(400).json({message:"email alrady exist"})
     }
-  const hashpass = await bcrypt.hash(req.body.password,10);
+  const hashpass = await bcrypt.hash(req.body.password,10)
    const newUser = new userModel({
       username:req.body.username,
       email:req.body.email,
       password: hashpass
    }) 
    await newUser.save()
-   return res.status(200).json({message:"sign in succes fully"})
+   return res.status(200).json({message:"sign in succes "})
 } catch (error) {
     console.log(error);
     return res.status(400).json({message:"inernal server error"})

@@ -1,5 +1,5 @@
 const userModel = require("../model/userModel");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 const signinController =async (req,res) => {
@@ -25,7 +25,7 @@ try {
       password: hashpass
    }) 
    await newUser.save()
-   return res.status(200).json({message:"sign in succes"})
+   return res.status(200).json({message:"sign in succes fully"})
 } catch (error) {
     console.log(error);
     return res.status(400).json({message:"inernal server error"})

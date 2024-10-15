@@ -12,5 +12,5 @@ app.use(cors());
 DbConnection();
 app.use(routes);
 app.listen(process.env.PORT, () => {
-  console.log("server runing on por 8000 ");
+  console.log("server runing on port 8000 ");
 });
